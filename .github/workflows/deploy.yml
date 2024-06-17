@@ -39,10 +39,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup
-        uses: jfrog/setup-jfrog-cli@v3
+        uses: jfrog/setup-jfrog-cli@v3 #Sets up jfrog-cli
       - name: Config
         run: |
-          export SERVER_ID="masi32" 
+          export SERVER_ID="masi32"
           jf c add $SERVER_ID --url=$JF_URL --access-token=$JF_ACCESS_TOKEN --interactive=false
           jf tfc --server-id-deploy $SERVER_ID --repo-deploy terraform-local-modules
-          jf tf p --namespace=${JFROG_NAMESPACE} --provider=local --tag=$(cat VERSION.txt
+          jf tf p --namespace=${JFROG_NAMESPACE} --provider=local --tag=$(cat VERSION.txt)
+       # export sets variables that will be used in subsequent commands
+       # p = publish
