@@ -19,7 +19,7 @@ jobs:
         working-directory: ./s3
     steps:
       - name: checkout
-        uses: actions/checkout@v4.2.0
+        uses: actions/checkout@v4
       - name: check
         uses: dorny/paths-filter@v3
         id: changes  #returns a value = outputs [id is github actions]
@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.0
+        uses: actions/checkout@v4
       - name: Setup
         uses: jfrog/setup-jfrog-cli@v3 #Sets up jfrog-cli
       - name: Config
